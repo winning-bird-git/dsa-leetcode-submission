@@ -8,7 +8,7 @@ class Solution:
         for i in range(n):
             for j in range(m):
                 if mat[i][j]==1:
-                    ans[i][j]=9999999
+                    ans[i][j]=-1
                 else:
                     q.append([i,j,0])
         while q:
@@ -22,8 +22,7 @@ class Solution:
             for i in range(len(rcheck)):
                 exr= r+rcheck[i]
                 exc= c+ccheck[i]
-                if exr>=0 and exr<n and exc>=0 and exc<m and ans[exr][exc]!=0 :
-                    if dis+1<ans[exr][exc]:
+                if exr>=0 and exr<n and exc>=0 and exc<m and ans[exr][exc]==-1:
                         ans[exr][exc] = dis+1
                         q.append([exr,exc,ans[exr][exc]])
 
