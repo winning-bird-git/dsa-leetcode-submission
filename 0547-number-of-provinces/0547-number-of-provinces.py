@@ -1,20 +1,16 @@
 from collections import deque
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        visit = [-1]* len(isConnected)
-        ans =0
+       visited = [0]*len(isConnected)
+       def dfs(node,graph,visited):
+        visited[node]=1
+        for i in range(len(graph)):
+            if graph[node][i]==1 and visited[i]!=1:
+                dfs(i,graph,visited)
 
-        for i in range(len(isConnected)):
-            if visit[i]== -1:
-                visit[i]=1
-                ans+=1
-                q=deque([i])
-                while q:
-                    ver = q.popleft()
-                    for j in range(len(isConnected)):
-                        if isConnected[ver][j] ==1 and visit[j]==-1:
-                            visit[j]=1
-                            q.append(j)
-        return ans 
-
-       
+       c=0
+       for i in range(len(isConnected)):
+        if visited[i]!=1:
+            c=c+1
+            dfs(i,isConnected,visited)
+       return c 
