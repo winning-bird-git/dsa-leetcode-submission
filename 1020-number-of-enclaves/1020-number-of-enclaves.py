@@ -40,8 +40,3 @@ class Solution:
                     ans=ans+1
         return ans 
 
-
-
-
-
-        
