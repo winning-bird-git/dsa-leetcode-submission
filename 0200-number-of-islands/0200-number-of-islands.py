@@ -1,33 +1,29 @@
 from collections import deque
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        n=len(grid)
-        m=len(grid[0])
-        visit=[[0]*m for _ in range(n)]
-        q=deque([])
-        def bfs(q,visit,grid):
+        m=len(grid)
+        n=len(grid[0])
+        visited = [[0]*n for _ in range(m)]
+        c=0
+        def bfs(r,c,visited,grid):
+            visited[r][c]=1
+            q=deque([[r,c]])
             while q:
                 obj=q.popleft()
-                r=obj[0]
-                c=obj[1]
-                delr=[-1,0,1,0]
-                delc=[0,1,0,-1]
-                for i in range(len(delr)):
-                    er=r+delr[i]
-                    ec=c+delc[i]
-                    if er>=0 and er<n and ec>=0 and ec<m and visit[er][ec]==0 and grid[er][ec]=="1":
-                        visit[er][ec]=1
-                        q.append([er,ec])
+                r1=obj[0]
+                c1=obj[1]
+                xr=[-1,0,1,0]
+                xc=[0,1,0,-1]
+                for i in range(len(xr)):
+                    nr=r1+xr[i]
+                    nc=c1+xc[i]
+                    if nr>=0 and nr<m and nc>=0 and nc<n and grid[nr][nc]=="1" and visited[nr][nc]==0:
+                        visited[nr][nc]=1
+                        q.append([nr,nc])
 
-        c=0
-        for i in range(n):
-            for j in range(m):
-                if visit[i][j]==0 and grid[i][j]=="1":
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j]=="1" and visited[i][j]!=1:
                     c+=1
-                    q.append([i,j])
-                    visit[i][j]=1
-                    bfs(q,visit,grid)
-        return c
-        
-
-        
+                    bfs(i,j,visited,grid)
+        return c 
