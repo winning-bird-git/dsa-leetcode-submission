@@ -4,6 +4,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## Array
 |  |
 | ------- |
+| [0026-remove-duplicates-from-sorted-array](https://github.com/winning-bird-git/dsa-leetcode-submission/tree/master/0026-remove-duplicates-from-sorted-array) |
 | [0130-surrounded-regions](https://github.com/winning-bird-git/dsa-leetcode-submission/tree/master/0130-surrounded-regions) |
 | [0200-number-of-islands](https://github.com/winning-bird-git/dsa-leetcode-submission/tree/master/0200-number-of-islands) |
 | [0542-01-matrix](https://github.com/winning-bird-git/dsa-leetcode-submission/tree/master/0542-01-matrix) |
@@ -91,4 +92,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0802-find-eventual-safe-states](https://github.com/winning-bird-git/dsa-leetcode-submission/tree/master/0802-find-eventual-safe-states) |
+## Two Pointers
+|  |
+| ------- |
+| [0026-remove-duplicates-from-sorted-array](https://github.com/winning-bird-git/dsa-leetcode-submission/tree/master/0026-remove-duplicates-from-sorted-array) |
 <!---LeetCode Topics End-->
