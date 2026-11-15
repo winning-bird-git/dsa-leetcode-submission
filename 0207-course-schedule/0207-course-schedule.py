@@ -1,33 +1,36 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: list[list[int]]) -> bool:
-        graph={}
+        grph={}
+        for i in range(numCourses):
+            grph[i]=[]
         for i in prerequisites:
-            u=i[0]
-            v=i[1]
-            if u not in graph:
-                graph[u]=[v]
-            else:
-                graph[u].append(v)
-        print(graph)
-        n=numCourses
-        visited=[0]*n
-        dfsvisit=[0]*n
-        def dfs(node,visited,dfsvisit,graph):
+            ai = i[1]
+            bi = i[0]
+            grph[ai].append(bi)
+        
+        def dfs(st,grph,visited,node,dfsvisit):
             visited[node]=1
             dfsvisit[node]=1
-            if node in graph:
-                for i in graph[node]:
-                    if visited[i]!=1:
-                        if not dfs(i,visited,dfsvisit,graph):
-                            return False
-                    elif dfsvisit[i]==1:
-                        return False
+            for i in grph[node]:
+                if visited[i]!=1:
+                    if not dfs(st,grph,visited,i,dfsvisit):
+                        return False 
+                elif dfsvisit[i]==1:
+                    return False 
             dfsvisit[node]=0
             return True
 
-        for i in range(n):
+
+        st=[]
+        visited = [-1]*numCourses
+        dfsvisit = [-1]* numCourses
+        for i in grph:
             if visited[i]!=1:
-                if not dfs(i,visited,dfsvisit,graph):
-                    return False
-        return True 
+                if not dfs(st,grph,visited,i,dfsvisit):
+                    return False 
+        return True
+    
+
+
+         
         
